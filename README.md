@@ -1,4 +1,4 @@
-#include <iostream>
+include <iostream>
 
 using namespace std;
 
@@ -85,19 +85,18 @@ int main() {
     int cell;
     int game_status = 0;
 
-    cout << "-- Tris by Marco Aceti --";
     resetGame(tris);
 
     while (game_status == 0) {
         cout << endl << endl;
         printTris(tris, player);
-        cout << "E' il turno del giocatore " << MAP[player] << " [inserisci il numero della cella o -1 per uscire]: ";
+        cout << "El siguiente turno " << MAP[player] 
         cin >> cell;
         if (cell == -1) {
             break;
         }
         if (!isEmpty(tris, cell)) {
-            cout << "La selezione non è valida. Riprovare." << endl << endl;
+  
             continue;
         }
         update(tris, player, cell);
@@ -106,10 +105,10 @@ int main() {
         if (game_status > 0) {
             cout << endl << endl;
             printTris(tris, game_status, true);
-            if (game_status <= 2) cout << "Il giocatore " << MAP[player] << " ha vinto. Complimenti!" << endl;
-            if (game_status == 3) cout << "Nessun giocatore ha vinto, parità!" << endl;
+            if (game_status <= 2) cout << "Il giocatore " << MAP[player] << " Completado!" << endl;
+            if (game_status == 3) cout << "Siguiente !" << endl;
             string choice;
-            cout << "Vuoi giocare ancora [S/N]? ";
+            cout << volver a jugar [S/N]? ";
             cin >> choice;
             if (choice == "S" || choice == "s") {
                 resetGame(tris);
@@ -121,6 +120,5 @@ int main() {
         if (tmp_player == 1) player = 2;
         if (tmp_player == 2) player = 1;
     }
-    cout << endl << endl << "Grazie per aver giocato. Arrivederci!";
     return 0;
 }
